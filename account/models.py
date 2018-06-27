@@ -3,9 +3,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+
+# FOR EMAIL USER
 # from .managers import CustomUserManager
-#
-#
+
 # class EmailUser(AbstractBaseUser, PermissionsMixin):
 #     email = models.EmailField(unique=True, null=True)
 #     is_staff = models.BooleanField(
@@ -38,7 +39,7 @@ from django.conf import settings
 #
 #     def __str__(self):
 #         return self.email
-#
+
 
 
 class Profile(models.Model):

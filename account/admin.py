@@ -18,6 +18,7 @@ class ProfileAdmin(admin.ModelAdmin):
     ordering = []
     list_display = ('user',)
 
+# FOR EMAIL USER
 # @admin.register(EmailUser)
 # class EmailUserAdmin(UserAdmin):
 #     fieldsets = (

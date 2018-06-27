@@ -41,7 +41,6 @@ class LoginView(TemplateView):
             username=username,
             password=password
         )
-        print(check_auth)
         if not check_auth:
             ctx['form'] = form
             return self.render_to_response(ctx)
