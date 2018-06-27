@@ -92,7 +92,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'data', 'static')
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
-# AUTH_USER_MODEL = 'account.EmailUser'
+AUTH_USER_MODEL = 'account.EmailUser'
 
 DEFAULT_SSO_PUBLIC_KEY = '1234567'
 DEFAULT_SSO_PRIVATE_KEY = '7654321'

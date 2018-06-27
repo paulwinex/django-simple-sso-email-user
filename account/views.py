@@ -10,7 +10,8 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from account.models import EmailUser
 from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -35,16 +36,18 @@ class LoginView(TemplateView):
         if not form.is_valid():
             print('not valid', form.error_messages)
             return redirect(request.path)
-        username = form.cleaned_data['username']
+        # username = form.cleaned_data['username']
+        email = form.cleaned_data['email']
         password = form.cleaned_data['password']
         check_auth = authenticate(
-            username=username,
+            email=email,
             password=password
         )
         if not check_auth:
             ctx['form'] = form
             return self.render_to_response(ctx)
-        user = get_object_or_404(User, username=username)
+        # user = get_object_or_404(User, username=username)
+        user = get_object_or_404(EmailUser, email=email)
         if not user:
             ctx['form'] = form
             return self.render_to_response(ctx)

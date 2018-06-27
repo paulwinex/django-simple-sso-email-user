@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm /tmp/server_db.sqlite3
 echo "=========== MIGRATE ============="
 ./manage.py makemigrations account
 ./manage.py migrate
